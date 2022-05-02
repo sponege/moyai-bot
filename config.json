@@ -1,11 +1,18 @@
 {
   "development": {
-    "bot_token": "OTY4MjIyNDk3NTU0MTk4NjA4.YmbteA.n3zUEniJgB2fL-GLOOZ3FzRNyRM",
+    "bot_token": "OTY4MjIyNDk3NTU0MTk4NjA4.YmbteA.F4IDWw6P8bf_tB7LB53x3btRBg8",
+    "title": "MoyaiBot",
+    "description": "🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿",
     "prefix": "m.",
     "admins": ["894783593694527499"],
     "activity": {
       "type": "WATCHING",
       "command": "echo <message>"
+    },
+    "commands": {
+      "help": "Displays this help message.",
+      "help admin": "Displays commands for bot developers and admins.",
+      "echo": "Echoes text (dangerous ping everyone XD)"
     }
   }
 }

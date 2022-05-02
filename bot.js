@@ -19,6 +19,10 @@ async function updateStatus(client) {
   }
 }
 
+function embedTemplate() {
+  return new MessageEmbed().setColor("RANDOM");
+}
+
 client.on("ready", async () => {
   console.log(`Logged in as ${client.user.tag}!`);
 
@@ -54,6 +58,50 @@ client.on("messageCreate", async (msg) => {
     switch (
       command // commands for everyone
     ) {
+      case "help":
+        if (global.admins.includes(msg.author.id) || op[1] != "admin") {
+          var embed = embedTemplate()
+            .setTitle(global.title)
+            .setDescription(global.description);
+          for (command of Object.entries(
+            op[1] == "admin" ? global.admin_commands : global.commands
+          )) {
+            embed = embed.addField(global.prefix + command[0], command[1]);
+          }
+          await msg.channel.send({ embeds: [embed] });
+        } else {
+          await msg.channel.send({
+            embeds: [
+              embedTemplate()
+                .setTitle("Error")
+                .setDescription(
+                  "You are not in the admins list in the config file!"
+                ),
+            ],
+          });
+        }
+        break;
+      case "adminhelp":
+      case "helpadmin":
+        if (global.admins.includes(msg.author.id)) {
+          var embed = embedTemplate()
+            .setTitle(global.title)
+            .setDescription(global.description);
+          for (command of Object.entries(global.admin_commands)) {
+            embed = embed.addField(global.prefix + command[0], command[1]);
+          }
+          await msg.channel.send({ embeds: [embed] });
+        } else {
+          await msg.channel.send({
+            embeds: [
+              embedTemplate()
+                .setTitle("Error")
+                .setDescription(
+                  "You are not in the admins list in the config file!"
+                ),
+            ],
+          });
+        }
       case "echo":
         var response = await msg.channel.send(
           contents ? contents : "You must supply a message to echo."
