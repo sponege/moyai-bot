@@ -1,0 +1,22 @@
+{
+  "name": "moyai-bot",
+  "version": "1.0.0",
+  "description": "Jordan's Discord bot template",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sponege/moyai-bot.git"
+  },
+  "author": "sponege",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sponege/moyai-bot/issues"
+  },
+  "homepage": "https://github.com/sponege/moyai-bot#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0"
+  }
+}
